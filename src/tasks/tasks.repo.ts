@@ -8,7 +8,8 @@ export class TasksRepo extends Repository<Task> {
     const query = this.createQueryBuilder('task');
 
     try {
-      return query.getMany();
+      const tasks = await query.getMany();
+      return tasks;
     } catch (e) {
       return e;
     }
